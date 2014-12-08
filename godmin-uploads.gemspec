@@ -21,6 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency "godmin", "~> 0.9.1"
   gem.add_dependency "refile", "~> 0.2.3"
+  gem.add_dependency "mini_magick", "~> 4.0.1"
 
   gem.add_development_dependency "bundler", "~> 1.7"
   gem.add_development_dependency "rake", "~> 10.0"
