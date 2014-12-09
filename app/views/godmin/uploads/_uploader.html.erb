@@ -2,35 +2,32 @@
   <% if preview %>
     <div class="media-left">
       <%= attachment_image_tag(
-        @resource, attachment, :fill, 150, 150, fallback: "http://placehold.it/150/f5f5f5/cccccc", size: "150", class: "godmin-upload-preview"
+        @resource, attachment, :fill, 100, 100, fallback: "http://placehold.it/100/f5f5f5/cccccc", size: "100", class: "godmin-upload-preview"
       ) %>
     </div>
   <% end %>
   <div class="media-body">
-    <div class="godmin-upload-area">
-      <%= f.label attachment do %>
-        <h4 class="media-heading">Click or drag to upload</h4>
-        <p>
-          Click to select a file from disk or simple drag and drop
-          a file to this area to upload.
-        </p>
-      <% end %>
-      <%= f.attachment_field attachment, direct: true, class: "godmin-upload-file-field" %>
-      <%= f.hidden_field "remove_#{attachment}", class: "godmin-upload-destroy-field" %>
-    </div>
-    <div class="godmin-upload-progress progress">
-      <div class="progress-bar" style="width: 0%;">
-      </div>
-    </div>
-    <div class="godmin-upload-buttons <%= "hidden" unless f.object.send(attachment) %>">
-      <%= link_to f.object.send(attachment) ? attachment_url(f.object, attachment) : "#", class: "btn btn-sm btn-default godmin-upload-download-link" do %>
-        <i class="glyphicon glyphicon-paperclip"></i>
+    <%= f.label attachment do %>
+      <span class="btn btn-default godmin-upload-upload-link">
+        <i class="glyphicon glyphicon-arrow-up"></i>
+        <span>Upload file</span>
+      </span>
+    <% end %>
+    <%= f.attachment_field attachment, direct: true, class: "godmin-upload-file-field" %>
+    <%= f.hidden_field "remove_#{attachment}", class: "godmin-upload-destroy-field" %>
+    <span class="godmin-upload-buttons <%= "hidden" unless f.object.send(attachment) %>">
+      <%= link_to f.object.send(attachment) ? attachment_url(f.object, attachment) : "#", class: "btn btn-default godmin-upload-download-link" do %>
+        <i class="glyphicon glyphicon-arrow-down"></i>
         <span>Download file</span>
       <% end %>
-      <%= link_to "#", class: "btn btn-sm btn-danger godmin-upload-destroy-link" do %>
+      <%= link_to "#", class: "btn btn-danger godmin-upload-destroy-link" do %>
         <i class="glyphicon glyphicon-remove"></i>
         <span>Destroy file</span>
       <% end %>
+    </span>
+    <div class="godmin-upload-progress progress">
+      <div class="progress-bar progress-bar-striped active" style="width: 0%;">
+      </div>
     </div>
   </div>
 </div>
