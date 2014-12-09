@@ -5,14 +5,11 @@ Godmin Uploads is a file upload component for [Godmin](https://github.com/varvet
 ## Installation
 
 Add the gem to the application's `Gemfile`:
-
 ```ruby
 gem "godmin-uploads"
 ```
 
 Or to the admin engine's `gemspec`:
-
-Add the gem to the engine's gemspec, `admin/admin.gemspec`:
 ```ruby
 s.add_dependency "godmin-uploads", "~> x.x.x"
 ```
