@@ -1,31 +1,41 @@
-# Godmin::Uploads
+# Godmin Uploads
 
-TODO: Write a gem description
+Godmin Uploads is a file upload component for [Godmin](https://github.com/varvet/godmin) that uses [refile](https://github.com/elabs/refile) for uploads.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add the gem to the application's `Gemfile`:
 
 ```ruby
-gem 'godmin-uploads'
+gem "godmin-uploads"
 ```
 
-And then execute:
+Or to the admin engine's `gemspec`:
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install godmin-uploads
+Add the gem to the engine's gemspec, `admin/admin.gemspec`:
+```ruby
+s.add_dependency "godmin-uploads", "~> x.x.x"
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+See the [refile](https://github.com/elabs/refile) documentation for info on how to configure storage location, set up your model etc. Once that is done, simply use the `uploader` view helper in your form like so:
 
-## Contributing
+```erb
+<%= form_for(@resource) do |f| %>
+  <%= f.input_field :title %>
+  <%= f.text_field :body %>
 
-1. Fork it ( https://github.com/[my-github-username]/godmin-uploads/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+  <%= uploader f, :attachment, preview: true %>
+<% end %>
+```
+
+The `preview` option is only available for image attachments.
+
+## Contributors
+
+https://github.com/varvet/godmin-uploads/graphs/contributors
+
+## License
+
+Licensed under the MIT license. See the separate MIT-LICENSE file.
