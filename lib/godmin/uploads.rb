@@ -10,7 +10,7 @@ module Godmin
     extend ActiveSupport::Concern
 
     included do
-      helper Refile::AttachmentHelper
+      helper AttachmentHelper
       helper Godmin::Uploads::Helper
     end
   end
