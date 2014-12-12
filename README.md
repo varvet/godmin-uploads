@@ -16,18 +16,20 @@ s.add_dependency "godmin-uploads", "~> x.x.x"
 
 ## Usage
 
-See the [refile](https://github.com/elabs/refile) documentation for info on how to configure storage location, set up your model etc. Once that is done, simply use the `uploader` view helper in your form like so:
+See the [refile](https://github.com/elabs/refile) documentation for info on how to configure storage location, set up your model etc. Once that is done, require `godmin-uploads` in your application.js and application.css.
+
+Then, simply use the `uploader` in your form like so:
 
 ```erb
 <%= form_for(@resource) do |f| %>
   <%= f.input_field :title %>
   <%= f.text_field :body %>
 
-  <%= uploader f, :attachment, preview: true %>
+  <%= f.uploader :attachment, preview: true %>
 <% end %>
 ```
 
-The `preview` option is only available for image attachments.
+The `preview` option should only be used for image attachments.
 
 ## Contributors
 
