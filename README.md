@@ -1,5 +1,7 @@
 # Godmin Uploads
 
+[![Gem Version](http://img.shields.io/gem/v/godmin-uploads.svg)](https://rubygems.org/gems/godmin-uploads)
+
 Godmin Uploads is a file upload component for [Godmin](https://github.com/varvet/godmin) that uses [refile](https://github.com/elabs/refile) for uploads.
 
 ## Installation
