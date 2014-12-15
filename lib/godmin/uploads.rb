@@ -7,11 +7,5 @@ require "godmin/uploads/version"
 
 module Godmin
   module Uploads
-    extend ActiveSupport::Concern
-
-    included do
-      helper AttachmentHelper
-      helper Godmin::Uploads::Helper
-    end
   end
 end

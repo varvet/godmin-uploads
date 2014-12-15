@@ -16,7 +16,7 @@
     <%= f.attachment_field attachment, direct: true, class: "godmin-upload-file-field" %>
     <%= f.hidden_field "remove_#{attachment}", class: "godmin-upload-destroy-field" %>
     <span class="godmin-upload-buttons <%= "hidden" unless f.object.send(attachment) %>">
-      <%= link_to f.object.send(attachment) ? attachment_url(f.object, attachment) : "#", class: "btn btn-default godmin-upload-download-link" do %>
+      <%= link_to attachment_url(f.object, attachment), class: "btn btn-default godmin-upload-download-link" do %>
         <i class="glyphicon glyphicon-arrow-down"></i>
         <span>Download file</span>
       <% end %>
