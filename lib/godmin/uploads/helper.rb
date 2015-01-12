@@ -9,7 +9,5 @@ module Godmin
     end
   end
 
-  [FormBuilders::FormBuilder, FormBuilders::SimpleFormBuilder].each do |form_builder|
-    form_builder.send(:include, Uploads::Helper)
-  end
+  FormBuilders::FormBuilder.send(:include, Uploads::Helper)
 end
