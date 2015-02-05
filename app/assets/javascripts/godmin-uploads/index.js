@@ -73,7 +73,7 @@
     var $urlParts = getFileUrlParts($el);
 
     $el.find(".godmin-upload-preview").attr(
-      "src", $urlParts[0] + "/fill/150/150/" + $urlParts[1] + "/foobar"
+      "src", $urlParts[0] + "/fill/150/150/" + $urlParts[1].id + "/foobar"
     );
   };
 
@@ -81,7 +81,7 @@
     var $urlParts = getFileUrlParts($el);
 
     $el.find(".godmin-upload-download-link").attr(
-      "href", $urlParts[0] + "/" + $urlParts[1] + "/foobar"
+      "href", $urlParts[0] + "/" + $urlParts[1].id + "/foobar"
     );
   };
 
@@ -89,7 +89,7 @@
     var $file = $el.find(".godmin-upload-file-field");
 
     return [
-      $file.data("url"), $file.prev().val()
+      $file.data("url"), JSON.parse($file.prev().val())
     ];
   };
 
