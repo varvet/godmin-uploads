@@ -10,7 +10,7 @@
     <%= f.label attachment do %>
       <span class="btn btn-default godmin-upload-upload-link">
         <i class="glyphicon glyphicon-arrow-up"></i>
-        <span>Upload file</span>
+        <span><%= t("godmin.uploads.upload_file") %></span>
       </span>
     <% end %>
     <%= f.attachment_field attachment, direct: true, class: "godmin-upload-file-field" %>
@@ -18,11 +18,12 @@
     <span class="godmin-upload-buttons <%= "hidden" unless f.object.send(attachment) %>">
       <%= link_to attachment_url(f.object, attachment), class: "btn btn-default godmin-upload-download-link" do %>
         <i class="glyphicon glyphicon-arrow-down"></i>
-        <span>Download file</span>
+        <span><%= t("godmin.uploads.download_file") %></span>
       <% end %>
       <%= link_to "#", class: "btn btn-danger godmin-upload-destroy-link" do %>
         <i class="glyphicon glyphicon-remove"></i>
-        <span>Destroy file</span>
+        <span class="godmin-upload-destroy-label"><%= t("godmin.uploads.destroy_file") %></span>
+        <span class="godmin-upload-undo-destroy-label"><%= t("godmin.uploads.undo_destroy_file") %></span>
       <% end %>
     </span>
     <div class="godmin-upload-progress progress">

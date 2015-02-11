@@ -1,0 +1,7 @@
+sv:
+  godmin:
+    uploads:
+      upload_file: Ladda upp
+      download_file: Ladda ner
+      destroy_file: Ta bort
+      undo_destroy_file: Ångra borttagning
