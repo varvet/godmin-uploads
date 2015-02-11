@@ -34,10 +34,12 @@
       var $destroyField = $(this).parents(".godmin-upload").find(".godmin-upload-destroy-field");
 
       if ($destroyField.val() === "") {
-        $(this).find("span").html("Undestroy file");
+        $(this).find(".godmin-upload-destroy-label").hide();
+        $(this).find(".godmin-upload-undo-destroy-label").show();
         $destroyField.val("true");
       } else {
-        $(this).find("span").html("Destroy file");
+        $(this).find(".godmin-upload-destroy-label").show();
+        $(this).find(".godmin-upload-undo-destroy-label").hide();
         $destroyField.val("");
       }
     });
