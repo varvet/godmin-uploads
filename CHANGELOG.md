@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.9.3 - 2015-02-11
+Features
+  - Internationalization support
+
 ### 0.9.2 - 2015-02-05
 Features
   - Refile version 0.5.3
