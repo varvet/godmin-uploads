@@ -2,7 +2,7 @@
   <% if preview %>
     <div class="media-left">
       <%= attachment_image_tag(
-        @resource, attachment, :fill, 100, 100, fallback: "http://placehold.it/100/f5f5f5/cccccc", size: "100", class: "godmin-upload-preview"
+        f.object, attachment, :fill, 100, 100, fallback: "http://placehold.it/100/f5f5f5/cccccc", size: "100", class: "godmin-upload-preview"
       ) %>
     </div>
   <% end %>
