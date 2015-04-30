@@ -1,9 +1,9 @@
 module Godmin
   module Uploads
     module Helper
-      def uploader(attachment, preview: false)
+      def uploader(attachment, preview: false, remove: false)
         @template.render partial: "godmin/uploads/uploader", locals: {
-          f: self, attachment: attachment, preview: preview
+          f: self, attachment: attachment, preview: preview, remove: remove
         }
       end
     end

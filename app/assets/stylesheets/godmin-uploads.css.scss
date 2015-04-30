@@ -1,13 +1,122 @@
-.godmin-upload {
-  .godmin-upload-progress {
-    display: none;
-  }
+.godmin-uploads {
+  width: 100%;
+  display: table;
+}
 
-  .godmin-upload-file-field {
-    display: none;
-  }
+.godmin-uploads__container {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  height: 250px;
+  width: 350px;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+}
 
-  .godmin-upload-undo-destroy-label {
-    display: none;
+.godmin-uploads__preview {
+  position: relative;
+  text-align: center;
+  &:hover {
+    .godmin-uploads__mask-update, .godmin-uploads__mask-download {
+      opacity: 1;
+      -webkit-transition: all 0.2s ease-in-out 0.1s;
+      -moz-transition: all 0.2s ease-in-out 0.1s;
+      -o-transition: all 0.2s ease-in-out 0.1s;
+      transition: all 0.2s ease-in-out 0.1s;
+      .godmin-uploads__file-label{
+        opacity: 1;
+        -webkit-transition: all 0.2s ease-in-out 0.1s;
+        -moz-transition: all 0.2s ease-in-out 0.1s;
+        -o-transition: all 0.2s ease-in-out 0.1s;
+        transition: all 0.2s ease-in-out 0.1s;
+      }
+    }
   }
+}
+
+.godmin-uploads__preview .glyphicon-file {
+  font-size: 80px;
+  height: 150px;
+  width: 150px;
+  line-height: 150px;
+}
+
+.godmin-uploads__upload-area {
+  margin: 0 auto;
+  height: 160px;
+  width: 160px;
+}
+
+.godmin-uploads__placeholder {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  height: 160px;
+  width: 160px;
+  color: #ddd;
+  .glyphicon-cloud-upload {
+    font-size: 40px;
+  }
+}
+
+.godmin-uploads__file-label {
+  display: block;
+  cursor: pointer;
+}
+
+.godmin-uploads__mask-update,
+.godmin-uploads__mask-download {
+  opacity: 0;
+  height: 40px;
+  line-height: 40px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  font-weight: bold;
+}
+
+.godmin-uploads__mask-update {
+  bottom: 0px;
+  color: #fff;
+  background-color: rgba(39, 39, 39, 0.6);
+  &:hover {
+    background-color: rgba(39, 39, 39, 0.9);
+  }
+}
+
+.godmin-uploads__mask-download {
+  bottom: 40px;
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  background-color: rgba(49, 49, 49, 0.4);
+  &:hover {
+    background-color: rgba(49, 49, 49, 0.7);
+  }
+}
+
+.godmin-uploads__preview .glyphicon-file,
+.godmin-uploads__remove,
+.godmin-uploads__placeholder .glyphicon-cloud-upload {
+  color: #ddd;
+  &:hover {
+    color: #bbb;
+  }
+}
+
+.godmin-uploads__remove {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+}
+
+.godmin-uploads__info__progress {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.godmin-uploads__info__filename {
+  text-align: center;
 }
