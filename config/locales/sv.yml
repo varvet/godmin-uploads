@@ -4,4 +4,5 @@ sv:
       upload_file: Ladda upp
       download_file: Ladda ner
       destroy_file: Ta bort
-      undo_destroy_file: Ångra borttagning
+      undo_destroy_file: Ångra
+      set_to_remove: Filen tas bort när du sparar
