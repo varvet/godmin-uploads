@@ -11,7 +11,7 @@
 
   <div class="godmin-uploads__preview">
     <% if preview %>
-      <%= attachment_image_tag(f.object, attachment, :fill, 0, 400, class:"godmin-uploads__preview__image") %>
+      <%= attachment_image_tag(f.object, attachment, :fill, 0, 400, fallback: "http://placehold.it/150/f5f5f5/cccccc", class:"godmin-uploads__preview__image") %>
     <% else %>
       <div class="glyphicon glyphicon-file godmin-uploads__preview__icon"></div>
     <% end %>

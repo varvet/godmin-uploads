@@ -87,7 +87,7 @@
   };
 
   var setUploadPreview = function($el, fileObject) {
-    $el.find(".godmin-uploads__preview img").attr(
+    $el.find(".godmin-uploads__preview__image").attr(
       "src", fileObject.url + "/fill/0/400/" + fileObject.id + "/image");
   };
 
