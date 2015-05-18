@@ -4,4 +4,5 @@ en:
       upload_file: Upload
       download_file: Download
       destroy_file: Remove
-      undo_destroy_file: Undo remove
+      undo_destroy_file: Undo
+      set_to_remove: The file will be removed on save

@@ -8,6 +8,8 @@
 
   var initialize = function() {
 
+    $('[data-toggle="tooltip"]').tooltip()
+
     $(document).on("upload:start", ".godmin-uploads", function(e) {
       var $el = $(this);
       $el.removeClass("godmin-uploads-success");

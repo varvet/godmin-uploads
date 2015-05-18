@@ -20,14 +20,12 @@ $border-radius: 4px;
   border: 1px dashed #ddd;
   .godmin-uploads__preview,
   .godmin-uploads__remove-link,
-  .godmin-uploads__complete {
+  .godmin-uploads__complete,
+  .godmin-uploads__info {
     display: none;
   }
   .godmin-uploads__placeholder {
     display: block;
-  }
-  .godmin-uploads__info {
-    display: none;
   }
 }
 

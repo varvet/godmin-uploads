@@ -11,27 +11,29 @@
 
   <div class="godmin-uploads__preview">
     <% if preview %>
-      <%= image_tag attachment_url(f.object, attachment, :fill ), class:"godmin-uploads__preview__image" %>
+      <%= attachment_image_tag(f.object, attachment, :fill, 0, 400, class:"godmin-uploads__preview__image") %>
     <% else %>
       <div class="glyphicon glyphicon-file godmin-uploads__preview__icon"></div>
     <% end %>
 
     <div class="godmin-uploads__preview__actions">
 
-      <% if false %>
+      <% if remove %>
         <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
-        <%= link_to "#", class: "godmin-uploads__remove-link" do %>
-          <i class="glyphicon glyphicon-remove"></i>
-        <% end %>
+        <div class="godmin-uploads__preview__remove" title="<%= t("godmin.uploads.destroy_file") %>">
+          <%= link_to "#", class: "godmin-uploads__remove-link" do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+        </div>
       <% end %>
 
-      <div class="godmin-uploads__preview__download">
+      <div class="godmin-uploads__preview__download" title="<%= t("godmin.uploads.download_file") %>">
         <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
           <i class="glyphicon glyphicon-cloud-download"></i>
         <% end %>
       </div>
 
-      <div class="godmin-uploads__preview__update">
+      <div class="godmin-uploads__preview__update" title="<%= t("godmin.uploads.upload_file") %>">
         <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
           <i class="glyphicon glyphicon-cloud-upload"></i>
         <% end %>
@@ -41,10 +43,10 @@
 
     <div class="godmin-uploads__preview__set-to-remove">
       <div class="godmin-uploads__preview__set-to-remove__actions">
-        <div> <%= "Item will be removed on save" %> </div>
+        <div> <%= t("godmin.uploads.set_to_remove") %> </div>
         <div class="remove__actions__undo">
           <i class="glyphicon glyphicon-repeat"></i>
-          <div> <%= "Undo" %> </div>
+          <div> <%= t("godmin.uploads.undo_destroy_file") %> </div>
         </div>
       </div>
     </div>
