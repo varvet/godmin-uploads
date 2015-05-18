@@ -1,24 +1,26 @@
 $border-radius: 4px;
 
-.godmin-uploads-wrapper { width: 100%;  }
-
 .godmin-uploads__info__progress { display: none; }
 
 .godmin-uploads {
+  max-height: 152px;
+  min-height: 152px;
   width: 100%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  min-height: 150px;
-  border-radius: $border-radius;
-  text-align: center;
   position: relative;
+  border-radius: $border-radius;
+  overflow: hidden;
 }
 
 ///States///
 .godmin-uploads {
   border: 1px dashed #ddd;
   .godmin-uploads__preview,
-  .godmin-uploads__remove-link {
+  .godmin-uploads__remove-link,
+  .godmin-uploads__complete {
     display: none;
   }
   .godmin-uploads__placeholder {
@@ -43,13 +45,25 @@ $border-radius: 4px;
 }
 
 .godmin-uploads-complete {
-
+  border: 1px dashed #ddd;
+  .godmin-uploads__preview__actions
+  .godmin-uploads__remove-link,
+  .godmin-uploads__placeholder,
+  .godmin-uploads__preview__actions {
+    display: none;
+  }
+  .godmin-uploads__info {
+    display: block;
+  }
 }
 
 .godmin-uploads-success {
+  max-height: 1200px;
+  transition: max-height 0.5s ease-in-out 0.3s;
   border: none;
   .godmin-uploads__placeholder,
-  .godmin-uploads__preview__set-to-remove {
+  .godmin-uploads__preview__set-to-remove,
+  .godmin-uploads__complete {
     display: none
   }
   .godmin-uploads__preview,
@@ -58,11 +72,12 @@ $border-radius: 4px;
   }
 }
 
-.godmin-uploads-remove-img {
+.godmin-uploads-remove {
    border: none;
   .godmin-uploads__remove-link,
   .godmin-uploads__placeholder,
-  .godmin-uploads__preview__actions {
+  .godmin-uploads__preview__actions,
+  .godmin-uploads__complete {
     display: none;
   }
   .godmin-uploads__preview,
@@ -74,22 +89,23 @@ $border-radius: 4px;
 ///end States///
 
 .godmin-uploads__preview__set-to-remove {
-  border-radius: 4px;
-  color: #fff;
+  border-radius: $border-radius;
   font-size: 1em;
   height: 100%;
   width: 100%;
   background-color: rgba(39, 39, 39, 0.8);
-  display: block;
+  color: #fff;
   position: absolute;
   top: 0;
   .godmin-uploads__preview__set-to-remove__actions {
-    display: table;
-    margin: 30px auto;
-    vertical-align: middle;
-    text-align: center;
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     .remove__actions__undo {
+      padding: 20px 0;
       cursor: pointer;
       .glyphicon-repeat {
         font-size: 2em;
@@ -101,14 +117,10 @@ $border-radius: 4px;
 .godmin-uploads__preview {
   position: relative;
   text-align: center;
-  margin: 0 auto;
   &:hover {
     .godmin-uploads__preview__actions {
       opacity: 1;
-      -webkit-transition: all 0.2s ease-in-out 0.1s;
-      -moz-transition: all 0.2s ease-in-out 0.1s;
-      -o-transition: all 0.2s ease-in-out 0.1s;
-      transition: all 0.2s ease-in-out 0.1s;
+      transition: opacity 0.2s ease-in-out 0.1s;
     }
   }
 }
@@ -116,9 +128,8 @@ $border-radius: 4px;
 .godmin-uploads__preview__image {
   border: 1px solid #ddd;
   border-radius: $border-radius;
-  width: 100%;
-  max-width: 1170px;
-  min-height: 150px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .godmin-uploads__preview .glyphicon-file {
@@ -130,7 +141,6 @@ $border-radius: 4px;
 
 .godmin-uploads__placeholder {
   cursor: pointer;
-  margin: 0px auto;
   text-align: center;
   width: 100px;
   .glyphicon-cloud-upload {
@@ -173,16 +183,12 @@ $border-radius: 4px;
   height: 50px;
   color: #fff;
   font-weight: bold;
+  .glyphicon {
+    font-size: 1.5em;
+    line-height: 50px;
+  }
   &:hover {
     background-color: rgba(0, 0, 0, 0.8);
-  }
-  a{
-    color: #fff;
-    text-decoration: none;
-    &:hover { color: #ddd; }
-    &:active { color: #bbb; }
-  }
-  &:hover {
     cursor: pointer;
     color: #ddd;
     text-decoration: none;
@@ -190,26 +196,21 @@ $border-radius: 4px;
   &:active {
     color: #bbb;
   }
-  .glyphicon {
-    font-size: 1.5em;
-    line-height: 50px;
+  a{
+    color: #fff;
+    text-decoration: none;
+    &:hover { color: #ddd; }
+    &:active { color: #bbb; }
   }
 }
 
-.godmin-uploads__preview__update__file-label {
-  cursor: pointer;
-}
+.godmin-uploads__preview__update__file-label { cursor: pointer; }
 
 .godmin-uploads__info {
-  z-index: 2;
   width: 100%;
 }
 
 .godmin-uploads__info__progress {
   margin: 0 auto;
   width: 80%;
-}
-
-.godmin-uploads__info__filename {
-  text-align: center;
 }

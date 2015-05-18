@@ -12,18 +12,18 @@
       var $el = $(this);
       $el.removeClass("godmin-uploads-success");
       $el.addClass("godmin-uploads-start");
-      console.log("start");
       showProgressBar($el);
     });
 
     $(document).on("upload:progress", ".godmin-uploads", function(e) {
-      console.log("progress");
       setProgressBarPercentage($(this), 50);
     });
 
     $(document).on("upload:complete", ".godmin-uploads", function(e) {
-      console.log("complete");
-      setProgressBarPercentage($(this), 100);
+      var $el = $(this);
+      setProgressBarPercentage($el, 100);
+      $el.removeClass("godmin-uploads-start");
+      $el.addClass("godmin-uploads-complete");
     });
 
     $(document).on("upload:success", ".godmin-uploads", function(e) {
@@ -32,7 +32,7 @@
       setUploadPreview($el, fileObject);
       setDownloadUrl($el, fileObject);
       hideProgressBar($el);
-      $el.removeClass("godmin-uploads-start");
+      $el.removeClass("godmin-uploads-complete");
       $el.addClass("godmin-uploads-success");
     });
 
@@ -44,13 +44,13 @@
       e.preventDefault();
       var $el = $(this).parents(".godmin-uploads");
       $el.removeClass("godmin-uploads-success");
-      $el.addClass("godmin-uploads-remove-img");
+      $el.addClass("godmin-uploads-remove");
       setDestroy($el);
     });
 
     $(document).on("click", ".remove__actions__undo", function(e) {
       var $el = $(this).parents(".godmin-uploads");
-      $el.removeClass("godmin-uploads-remove-img");
+      $el.removeClass("godmin-uploads-remove");
       $el.addClass("godmin-uploads-success");
       unsetDestroy($el);
     });
@@ -86,7 +86,7 @@
 
   var setUploadPreview = function($el, fileObject) {
     $el.find(".godmin-uploads__preview img").attr(
-      "src", fileObject.url + "/fill/500/0/" + fileObject.id + "/image");
+      "src", fileObject.url + "/fill/0/400/" + fileObject.id + "/image");
   };
 
   var setDownloadUrl = function($el, fileObject) {
