@@ -27,11 +27,13 @@ Then, simply use the `uploader` in your form like so:
   <%= f.input_field :title %>
   <%= f.text_field :body %>
 
-  <%= f.uploader :attachment, preview: true %>
+  <%= f.uploader :attachment, preview: true, remove: false %>
 <% end %>
 ```
 
 The `preview` option should only be used for image attachments.
+
+By setting `remove: false` the uploader's remove image action is hidden. 
 
 ## Contributors
 
