@@ -1,5 +1,12 @@
 # Changelog
 
+### 0.10.0 - 2015-06-25
+Features
+- New look
+
+Fixes
+- Works with nested fields
+
 ### 0.9.3 - 2015-02-11
 Features
   - Internationalization support
