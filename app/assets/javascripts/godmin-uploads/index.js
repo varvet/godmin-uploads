@@ -34,7 +34,6 @@
       setUploadPreview($el, fileObject);
       setDownloadUrl($el, fileObject);
       hideProgressBar($el);
-      $el.removeClass("godmin-uploads-complete");
       $el.addClass("godmin-uploads-success");
     });
 

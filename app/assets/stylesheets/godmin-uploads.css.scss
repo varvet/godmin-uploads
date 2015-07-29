@@ -39,7 +39,8 @@ $border-radius: 4px;
     display: none;
   }
   .godmin-uploads__info {
-    display: block;
+    display: flex;
+    display: -webkit-flex;
   }
 }
 
@@ -52,7 +53,8 @@ $border-radius: 4px;
     display: none;
   }
   .godmin-uploads__info {
-    display: block;
+    display: flex;
+    display: -webkit-flex;
   }
 }
 
@@ -119,9 +121,7 @@ $border-radius: 4px;
 
 .godmin-uploads__preview {
   display: flex;
-  //justify-content: center;
-  //align-items: center;
-  //max-width: 100%;
+  display: -webkit-flex;
   position: relative;
   text-align: center;
   &:hover {
@@ -217,9 +217,12 @@ $border-radius: 4px;
 
 .godmin-uploads__info {
   width: 100%;
+  justify-content: space-around;
 }
 
 .godmin-uploads__info__progress {
   margin: 0 auto;
   width: 80%;
+  align-self: center;
+  -webkit-align-self: center;
 }
