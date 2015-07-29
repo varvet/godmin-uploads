@@ -16,6 +16,17 @@ Or to the admin engine's `gemspec`:
 s.add_dependency "godmin-uploads", "~> x.x.x"
 ```
 
+Require the gem's stylesheet and javascript:
+```css
+ *= require godmin
+ *= require godmin-uploads
+```
+
+```javascript
+//= require godmin
+//= require godmin-uploads
+```
+
 ## Usage
 
 See the [refile](https://github.com/elabs/refile) documentation for info on how to configure storage location, set up your model etc. Once that is done, require `godmin-uploads` in your application.js and application.css.
