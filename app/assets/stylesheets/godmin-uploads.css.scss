@@ -6,13 +6,12 @@ $border-radius: 4px;
   max-height: 152px;
   min-height: 152px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position: relative;
   border-radius: $border-radius;
   overflow: hidden;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
 }
 
 ///States///
@@ -26,6 +25,8 @@ $border-radius: 4px;
   }
   .godmin-uploads__placeholder {
     display: block;
+    align-self: center;
+    -webkit-align-self: center;
   }
 }
 
@@ -71,6 +72,7 @@ $border-radius: 4px;
 }
 
 .godmin-uploads-remove {
+   max-height: 1200px;
    border: none;
   .godmin-uploads__remove-link,
   .godmin-uploads__placeholder,
@@ -97,8 +99,11 @@ $border-radius: 4px;
   top: 0;
   .godmin-uploads__preview__set-to-remove__actions {
     display: flex;
+    display: -webkit-flex;
     flex-direction: column;
+    -webkit-flex-direction: column;
     justify-content: center;
+    -webkit-justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
@@ -113,6 +118,10 @@ $border-radius: 4px;
 }
 
 .godmin-uploads__preview {
+  display: flex;
+  //justify-content: center;
+  //align-items: center;
+  //max-width: 100%;
   position: relative;
   text-align: center;
   &:hover {
