@@ -12,6 +12,7 @@ $border-radius: 4px;
   display: -webkit-flex;
   justify-content: center;
   -webkit-justify-content: center;
+  position: relative;
 }
 
 ///States///
@@ -216,6 +217,10 @@ $border-radius: 4px;
 .godmin-uploads__preview__update__file-label { cursor: pointer; }
 
 .godmin-uploads__info {
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
   width: 100%;
   justify-content: space-around;
 }
@@ -223,6 +228,7 @@ $border-radius: 4px;
 .godmin-uploads__info__progress {
   margin: 0 auto;
   width: 80%;
+  max-width: 10em;
   align-self: center;
   -webkit-align-self: center;
 }
