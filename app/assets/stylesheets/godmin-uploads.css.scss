@@ -19,22 +19,18 @@ $border-radius: 4px;
 .godmin-uploads {
   border: 1px dashed #ddd;
   .godmin-uploads__preview,
-  .godmin-uploads__remove-link,
   .godmin-uploads__complete,
   .godmin-uploads__info {
     display: none;
   }
   .godmin-uploads__placeholder {
     display: block;
-    align-self: center;
-    -webkit-align-self: center;
   }
 }
 
 .godmin-uploads-start {
   border: 1px dashed #ddd;
   .godmin-uploads__preview__actions
-  .godmin-uploads__remove-link,
   .godmin-uploads__placeholder,
   .godmin-uploads__preview__actions {
     display: none;
@@ -48,7 +44,6 @@ $border-radius: 4px;
 .godmin-uploads-complete {
   border: 1px dashed #ddd;
   .godmin-uploads__preview__actions
-  .godmin-uploads__remove-link,
   .godmin-uploads__placeholder,
   .godmin-uploads__preview__actions {
     display: none;
@@ -68,8 +63,7 @@ $border-radius: 4px;
   .godmin-uploads__complete {
     display: none
   }
-  .godmin-uploads__preview,
-  .godmin-uploads__remove-link {
+  .godmin-uploads__preview {
     display: block;
   }
 }
@@ -77,7 +71,6 @@ $border-radius: 4px;
 .godmin-uploads-remove {
    max-height: 1200px;
    border: none;
-  .godmin-uploads__remove-link,
   .godmin-uploads__placeholder,
   .godmin-uploads__preview__actions,
   .godmin-uploads__complete {
@@ -96,7 +89,7 @@ $border-radius: 4px;
   font-size: 1em;
   height: 100%;
   width: 100%;
-  background-color: rgba(39, 39, 39, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   position: absolute;
   top: 0;
@@ -144,22 +137,21 @@ $border-radius: 4px;
 }
 
 .godmin-uploads__placeholder {
+  align-self: center;
+  -webkit-align-self: center;
   cursor: pointer;
   text-align: center;
   width: 100px;
-  .glyphicon-cloud-upload {
-    font-size: 40px;
+  color: #ddd;
+  &:hover {
+    color: #bbb;
   }
 }
 
 .godmin-uploads__placeholder__file-label {
   cursor: pointer;
-}
-
-.godmin-uploads__placeholder {
-  color: #ddd;
-  &:hover {
-    color: #bbb;
+  .glyphicon-cloud-upload {
+    font-size: 40px;
   }
 }
 
@@ -170,14 +162,17 @@ $border-radius: 4px;
   z-index: 1;
 }
 
-.godmin-uploads__remove-link,
-.godmin-uploads__preview__download,
-.godmin-uploads__preview__update {
-  color: #000;
-  text-decoration: none;
+.godmin-uploads__preview__update__file-label {
+  padding: 3px 20px;
+  font-weight: normal;
+  display: block;
+  margin-bottom: 0;
+  cursor: pointer;
+  line-height: 20px;
+  &:hover {
+    background-color: #f5f5f5;
+  }
 }
-
-.godmin-uploads__preview__update__file-label { cursor: pointer; }
 
 .godmin-uploads__info {
   position: absolute;

@@ -18,20 +18,28 @@
 
     <div class="godmin-uploads__preview__actions dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="godmin-uploads-actions" data-toggle="dropdown">
-        File
+        Actions
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <% if remove %>
-          <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
-          <div class="godmin-uploads__preview__remove" title="<%= t("godmin.uploads.destroy_file") %>">
-            <li><%= link_to "Remove", "#", class: "godmin-uploads__remove-link" %></li>
-          </div>
-        <% end %>
-        <li><a href="#">Replace</a></li>
-        <li><a href="#">Remove</a></li>
-      </ul>
 
+        <li>
+          <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
+            <%= t("godmin.uploads.download_file") %>
+          <% end %>
+        </li>
+        <li>
+          <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
+            <%= t("godmin.uploads.upload_file") %>
+          <% end %>
+        </li>
+        <% if remove %>
+          <li>
+            <%= link_to "Remove", "#", class: "godmin-uploads__remove-link" %>
+          </li>
+          <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
+        <% end %>
+      </ul>
     </div>
 
     <div class="godmin-uploads__preview__set-to-remove">
