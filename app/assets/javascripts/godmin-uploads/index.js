@@ -8,7 +8,7 @@
 
   var initialize = function() {
 
-    $('[data-toggle="tooltip"]').tooltip();
+    displayFileName($(".godmin-uploads"), $(".godmin-uploads__filename-field").val());
 
     $(document).on("upload:start", ".godmin-uploads", function(e) {
       var $el = $(this);
@@ -33,6 +33,8 @@
       var fileObject = getFileObject($el);
       setUploadPreview($el, fileObject);
       setDownloadUrl($el, fileObject);
+      setFileName($el, fileObject.filename);
+      displayFileName($el, fileObject.filename);
       hideProgressBar($el);
       $el.removeClass("godmin-uploads-complete");
       $el.addClass("godmin-uploads-success");
@@ -96,10 +98,18 @@
       "href", fileObject.url + "/" + fileObject.id + "/image");
   };
 
+  var setFileName = function($el, filename) {
+    $el.find(".godmin-uploads__filename-field").val(filename);
+  };
+
+  var displayFileName = function($el, filename) {
+    $el.find(".godmin-uploads__display-filename").html('<span>' + filename + '</span>');
+  };
+
   var getFileObject = function($el) {
-    var $file = $el.find(".godmin-uploads__file-field")
+    var $file = $el.find(".godmin-uploads__file-field");
     var fileObject = JSON.parse($file.prev().val());
-    fileObject.url = $file.data("url")
+    fileObject.url = $file.data("url");
     return fileObject;
   };
 

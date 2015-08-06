@@ -19,8 +19,7 @@ $border-radius: 4px;
 .godmin-uploads {
   border: 1px dashed #ddd;
   .godmin-uploads__preview,
-  .godmin-uploads__complete,
-  .godmin-uploads__info {
+  .godmin-uploads__complete {
     display: none;
   }
   .godmin-uploads__placeholder {
@@ -156,7 +155,7 @@ $border-radius: 4px;
   position: absolute;
   top: 5px;
   right: 5px;
-  z-index: 1;
+  z-index: 50;
 }
 
 .godmin-uploads__preview__update__file-label {
@@ -178,6 +177,25 @@ $border-radius: 4px;
   height: 100%;
   width: 100%;
   justify-content: space-around;
+  display: flex;
+  display: -webkit-flex;
+}
+
+.godmin-uploads__display-filename {
+  position: absolute;
+  bottom: 12px;
+  right: 5px;
+  z-index: 50;
+  font-size: 14px;
+  font-weight: normal;
+  width: 100%;
+  text-align: right;
+  span {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: $border-radius;
+  }
 }
 
 .godmin-uploads__info__progress {

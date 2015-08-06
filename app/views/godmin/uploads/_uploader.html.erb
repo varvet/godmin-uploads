@@ -16,30 +16,36 @@
       <div class="glyphicon glyphicon-file godmin-uploads__preview__icon"></div>
     <% end %>
 
-    <div class="godmin-uploads__preview__actions dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="godmin-uploads-actions" data-toggle="dropdown">
-        <%= t("godmin.actions.label") %>
-        <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu dropdown-menu-right">
+    <% if filename %>
+      <div class="godmin-uploads__display-filename"><span></span></div>
+      <%= f.hidden_field "#{attachment}_title", class: "godmin-uploads__filename-field" %>
+    <% end %>
 
-        <li>
-          <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
-            <%= t("godmin.uploads.download_file") %>
-          <% end %>
-        </li>
-        <li>
-          <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
-            <%= t("godmin.uploads.upload_file") %>
-          <% end %>
-        </li>
-        <% if remove %>
+    <div class="godmin-uploads__preview__actions">
+      <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" type="button" id="godmin-uploads-actions" data-toggle="dropdown">
+          <%= t("godmin.actions.label") %>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
           <li>
-            <%= link_to t("godmin.uploads.destroy_file"), "#", class: "godmin-uploads__remove-link" %>
+            <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
+              <%= t("godmin.uploads.download_file") %>
+            <% end %>
           </li>
-          <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
-        <% end %>
-      </ul>
+          <li>
+            <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
+              <%= t("godmin.uploads.upload_file") %>
+            <% end %>
+          </li>
+          <% if remove %>
+            <li>
+              <%= link_to t("godmin.uploads.destroy_file"), "#", class: "godmin-uploads__remove-link" %>
+            </li>
+            <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
+          <% end %>
+        </ul>
+      </div>
     </div>
 
     <div class="godmin-uploads__preview__set-to-remove">
@@ -58,5 +64,4 @@
       <div class="progress-bar progress-bar-striped active" style="width: 0%;"></div>
     </div>
   </div>
-
 </div>
