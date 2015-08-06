@@ -142,10 +142,6 @@ $border-radius: 4px;
   cursor: pointer;
   text-align: center;
   width: 100px;
-  color: #ddd;
-  &:hover {
-    color: #bbb;
-  }
 }
 
 .godmin-uploads__placeholder__file-label {
@@ -189,4 +185,11 @@ $border-radius: 4px;
   max-width: 10em;
   align-self: center;
   -webkit-align-self: center;
+}
+
+.godmin-uploads__preview__icon {
+  border-radius: $border-radius;
+  min-width: 200px;
+  border: 1px solid #ddd;
+  color: #ddd;
 }
