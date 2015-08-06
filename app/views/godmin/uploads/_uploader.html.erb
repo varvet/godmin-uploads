@@ -18,10 +18,10 @@
 
     <div class="godmin-uploads__preview__actions dropdown">
       <button class="btn btn-default dropdown-toggle" type="button" id="godmin-uploads-actions" data-toggle="dropdown">
-        Actions
+        <%= t("godmin.actions.label") %>
         <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu dropdown-menu-right">
 
         <li>
           <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
@@ -35,7 +35,7 @@
         </li>
         <% if remove %>
           <li>
-            <%= link_to "Remove", "#", class: "godmin-uploads__remove-link" %>
+            <%= link_to t("godmin.uploads.destroy_file"), "#", class: "godmin-uploads__remove-link" %>
           </li>
           <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
         <% end %>
