@@ -88,12 +88,13 @@
 
   var setUploadPreview = function($el, fileObject) {
     $el.find(".godmin-uploads__preview__image").attr(
-      "src", fileObject.url + "/fill/0/400/" + fileObject.id + "/image");
+      "src", fileObject.url + "/fill/0/400/" + fileObject.id + "/" + fileObject.filename);
   };
 
   var setDownloadUrl = function($el, fileObject) {
+    ext = fileObject.filename.split(".").pop().toLowerCase();
     $el.find(".godmin-uploads__preview__download__link").attr(
-      "href", fileObject.url + "/" + fileObject.id + "/image");
+      "href", fileObject.url + "/" + fileObject.id + "/" + fileObject.filename);
   };
 
   var getFileObject = function($el) {
