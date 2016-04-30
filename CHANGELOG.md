@@ -1,5 +1,13 @@
 # Changelog
 
+### 0.10.2 - 2015-04-30
+Bug fixes:
+- Fixes preview of newly uploaded files in IE
+
+### 0.10.1 - 2015-02-05
+Bug fixes:
+- Fixes bundler errors on recent versions of godmin
+
 ### 0.10.0 - 2015-06-25
 Features
 - New look
