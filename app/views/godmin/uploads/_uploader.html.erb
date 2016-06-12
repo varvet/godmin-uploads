@@ -16,29 +16,30 @@
       <div class="glyphicon glyphicon-file godmin-uploads__preview__icon"></div>
     <% end %>
 
-    <div class="godmin-uploads__preview__actions">
+    <div class="godmin-uploads__preview__actions dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="godmin-uploads-actions" data-toggle="dropdown">
+        <%= t("godmin.actions.label") %>
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right">
 
-      <% if remove %>
-        <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
-        <div class="godmin-uploads__preview__remove" title="<%= t("godmin.uploads.destroy_file") %>">
-          <%= link_to "#", class: "godmin-uploads__remove-link" do %>
-            <i class="glyphicon glyphicon-remove"></i>
+        <li>
+          <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
+            <%= t("godmin.uploads.download_file") %>
           <% end %>
-        </div>
-      <% end %>
-
-      <div class="godmin-uploads__preview__download" title="<%= t("godmin.uploads.download_file") %>">
-        <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
-          <i class="glyphicon glyphicon-cloud-download"></i>
+        </li>
+        <li>
+          <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
+            <%= t("godmin.uploads.upload_file") %>
+          <% end %>
+        </li>
+        <% if remove %>
+          <li>
+            <%= link_to t("godmin.uploads.destroy_file"), "#", class: "godmin-uploads__remove-link" %>
+          </li>
+          <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
         <% end %>
-      </div>
-
-      <div class="godmin-uploads__preview__update" title="<%= t("godmin.uploads.upload_file") %>">
-        <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
-          <i class="glyphicon glyphicon-cloud-upload"></i>
-        <% end %>
-      </div>
-
+      </ul>
     </div>
 
     <div class="godmin-uploads__preview__set-to-remove">
@@ -54,8 +55,7 @@
 
   <div class="godmin-uploads__info">
     <div class="godmin-uploads__info__progress progress">
-      <div class="progress-bar progress-bar-striped active" style="width: 0%;">
-      </div>
+      <div class="progress-bar progress-bar-striped active" style="width: 0%;"></div>
     </div>
   </div>
 
