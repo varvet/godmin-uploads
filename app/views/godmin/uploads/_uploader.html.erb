@@ -1,62 +1,30 @@
-<div class="godmin-uploads <%= 'godmin-uploads-success' if f.object.send(attachment) %>">
+<div class="godmin-uploads">
+  <% if preview %>
+    <%= attachment_image_tag(f.object, attachment, :fill, 0, 400, class: "godmin-uploads__image") %>
+  <% end %>
 
-  <%= f.attachment_field attachment, direct: true, class: "hidden godmin-uploads__file-field" %>
+  <%= f.attachment_field attachment, direct: true, class: "hidden" %>
 
-  <div class="godmin-uploads__placeholder">
-    <%= f.label attachment, class:"godmin-uploads__placeholder__file-label" do %>
-      <div class="glyphicon glyphicon-cloud-upload"></div>
-      <div><%= t("godmin.uploads.upload_file")%></div>
+  <div class="godmin-uploads__progress progress">
+    <div class="progress-bar" style="width: 0%;"></div>
+  </div>
+
+  <%= f.label attachment, class: "btn btn-default" do %>
+    <i class="glyphicon glyphicon-cloud-upload"></i>
+  <% end %>
+
+  <% if f.object.send(attachment) %>
+    <%= link_to attachment_url(f.object, attachment), class: "btn btn-default" do %>
+      <i class="glyphicon glyphicon-cloud-download"></i>
     <% end %>
-  </div>
+  <% end %>
 
-  <div class="godmin-uploads__preview">
-    <% if preview %>
-      <%= attachment_image_tag(f.object, attachment, :fill, 0, 400, fallback: "http://placehold.it/150/f5f5f5/cccccc", class:"godmin-uploads__preview__image", alt:"") %>
-    <% else %>
-      <div class="glyphicon glyphicon-file godmin-uploads__preview__icon"></div>
+  <% if f.object.send(attachment) %>
+    <% if remove %>
+      <button class="godmin-uploads__remove-btn btn btn-default">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+      <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
     <% end %>
-
-    <div class="godmin-uploads__preview__actions">
-
-      <% if remove %>
-        <%= f.hidden_field "remove_#{attachment}", class: "godmin-uploads__remove-field" %>
-        <div class="godmin-uploads__preview__remove" title="<%= t("godmin.uploads.destroy_file") %>">
-          <%= link_to "#", class: "godmin-uploads__remove-link" do %>
-            <i class="glyphicon glyphicon-remove"></i>
-          <% end %>
-        </div>
-      <% end %>
-
-      <div class="godmin-uploads__preview__download" title="<%= t("godmin.uploads.download_file") %>">
-        <%= link_to attachment_url(f.object, attachment), class: "godmin-uploads__preview__download__link" do %>
-          <i class="glyphicon glyphicon-cloud-download"></i>
-        <% end %>
-      </div>
-
-      <div class="godmin-uploads__preview__update" title="<%= t("godmin.uploads.upload_file") %>">
-        <%= f.label attachment, class:"godmin-uploads__preview__update__file-label" do %>
-          <i class="glyphicon glyphicon-cloud-upload"></i>
-        <% end %>
-      </div>
-
-    </div>
-
-    <div class="godmin-uploads__preview__set-to-remove">
-      <div class="godmin-uploads__preview__set-to-remove__actions">
-        <div> <%= t("godmin.uploads.set_to_remove") %> </div>
-        <div class="remove__actions__undo">
-          <i class="glyphicon glyphicon-repeat"></i>
-          <div> <%= t("godmin.uploads.undo_destroy_file") %> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="godmin-uploads__info">
-    <div class="godmin-uploads__info__progress progress">
-      <div class="progress-bar progress-bar-striped active" style="width: 0%;">
-      </div>
-    </div>
-  </div>
-
+  <% end %>
 </div>
