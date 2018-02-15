@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.2 - 2018-02-15
+### 0.11 - 2018-02-15
 Features
 - Supports modern versions of Refile
 
